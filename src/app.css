@@ -1,0 +1,58 @@
+:root{
+  font-size: calc(0.6vw + 10px);
+  font-family: "微软雅黑";
+}
+body {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: white; 
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: white;
+}
+.m-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+button, input{
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 只有在用到的时候才会加载进来，可以放心使用 */
+@font-face {
+  font-family: "ITCBLKAD";
+  src: url("./../static/font/ITCBLKAD.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {  
+  font-family: 'CHILLER';  
+  src: url('./../static/font/CHILLER.ttf');
+  font-weight: normal;  
+  font-style: normal;  
+}

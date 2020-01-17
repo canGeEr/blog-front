@@ -1,0 +1,176 @@
+/* 
+  logo 
+  */
+/* 
+#logo {
+  position: relative;
+  height: 5rem;
+  height: 4.5rem;
+  cursor: pointer;
+}
+
+.logo-line {
+  width: 6.375rem;
+  height: 5px;
+  background-color: white;
+}
+
+[class$="font"] {
+  position: absolute;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  width: 1.2rem;
+  font-family: ITCBLKAD;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  transform-origin: 50% 0;
+}
+
+[class$="bar"] {
+  position: absolute;
+  width: 0.125rem;
+  background-color: white;
+  transform-origin: 50% 0;
+}
+
+[class$="bar"]:nth-child(2) {
+  height: 1.25rem;
+  left: 1.5rem;
+  animation: first-bar 5s infinite alternate;
+}
+
+[class$="font"]:nth-child(5) {
+  left: 1.0625rem;
+  top: 1.25rem;
+  animation: first-font 5s infinite alternate;
+}
+
+@keyframes first-bar {
+  33% {
+    transform: rotate(10deg);
+  }
+
+  66.7% {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes first-font {
+  33% {
+    transform: rotate(30deg);
+  }
+
+  66.7% {
+    transform: rotate(-30deg);
+  }
+
+  to {
+    transform: rotate(-45deg);
+  }
+}
+
+[class$="bar"]:nth-child(3) {
+  left: 3rem;
+  height: 2.5rem;
+  animation: second-bar 5s infinite alternate;
+}
+
+[class$="font"]:nth-child(6) {
+  left: 2.45rem;
+  top: 2.5rem;
+  animation: second-font 5s infinite alternate;
+}
+
+@keyframes second-bar {
+  40% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(-2.5deg);
+  }
+
+  70% {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes second-font {
+  40% {
+    transform: rotate(-30deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+
+  70% {
+    transform: rotate(-30deg);
+  }
+
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+[class$="bar"]:nth-child(4) {
+  left: 4.5rem;
+  height: 3.5rem;
+}
+
+[class$="font"]:nth-child(7) {
+  left: 4rem;
+  top: 3.25rem;
+  animation: third-font 3s linear infinite alternate;
+  transform-origin: 50%;
+} */
+
+/* layout */
+
+footer {
+  /* justify-content: space-between; */
+  padding: 0.5rem 1rem;
+  font-size: 0.90rem;
+  text-align: center;
+  text-transform: uppercase;
+  color:white;
+  background-color: black;
+}
+
+/* .footer_top {
+  align-items: center;
+  justify-content: space-between;
+} */
+
+/* @media(max-width: 800px){
+  .footer_top {
+    flex-wrap: wrap-reverse;
+  }
+  .footer_left {
+    margin: 0 auto;
+  }
+
+  #logo{
+    display: none;
+  }
+}
+
+dt {
+  margin-bottom: 0.25rem;
+}
+dd {
+  margin-left: 0;
+  color: #ccc;
+}
+dl {
+  margin: 1rem;
+  font-size: 0.85rem;
+} */

@@ -1,0 +1,24 @@
+.write {
+  width: 100%;
+}
+.mavon-editor {
+  min-height: 100vh;
+}
+
+/* 
+标题
+*/
+p{
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+p input {
+  width: 50%;
+  border-radius: 0.25rem;
+}
+p button {
+  display: inline-block;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #f33474;
+}

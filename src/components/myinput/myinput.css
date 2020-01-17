@@ -1,0 +1,59 @@
+ /* 全局按钮样式 */
+ input{
+  outline: none;
+  border: none;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  text-indent: 0.25rem;
+  min-width: 15rem;
+  background-color: transparent;
+}
+label{
+  display: block;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  margin: 2rem auto;
+  width: 15rem;
+}
+/* 全局按钮样式 */
+
+
+/* svg线条边框动画 */
+svg{
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.user-name-att{
+  /* 标签动画 */
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 1px;
+  transform: translate(0.25rem, 0);
+  transition: all 0.10s;
+  font-family: monospace;
+  color: black;
+  text-transform: capitalize;
+}
+
+path{
+  /* 路径动画 */
+  transition: stroke-dasharray 0.30s;
+  stroke-dasharray: 600 800;
+}
+
+.user-name-path-anim{
+  stroke-dasharray: 600 0;
+}
+
+.user-name-att-anim{
+  transform: translate(0, -2.5rem);
+  margin-left: 0;
+}
+/* svg线条边框动画*/
