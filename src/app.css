@@ -36,9 +36,12 @@ a:hover {
   display: none;
 }
 
+input {
+  border: 1px solid black;
+}
+
 button, input{
   background-color: white;
-  border: none;
   font-size: 1rem;
   padding: 0.25rem 0.5rem;
 }

@@ -1,24 +1,20 @@
 .write {
   width: 100%;
 }
+
 .mavon-editor {
   min-height: 100vh;
+  z-index: 0;
 }
 
 /* 
 标题
 */
-p{
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+.headline {
+  padding: 0.25rem;
+  background-color: white;
 }
-p input {
-  width: 50%;
-  border-radius: 0.25rem;
-}
-p button {
-  display: inline-block;
-  border-radius: 0.25rem;
-  color: white;
-  background-color: #f33474;
+
+.headline input {
+  line-height: 2rem;
 }
