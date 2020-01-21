@@ -9,6 +9,10 @@ nav {
   background-color: black;
 }
 
+.ul-nav {
+  align-items: center;
+}
+
 .ul-nav li{
   padding: 0 0.5rem;
   cursor: pointer;
@@ -60,6 +64,5 @@ nav {
 
 /* logo */
 #logo {
-  flex-grow: 0;
-  flex-shrink: 0;
+  margin-right: 1rem;
 }

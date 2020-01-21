@@ -21,7 +21,7 @@ httpService.interceptors.request.use(
 httpService.interceptors.response.use(
   response => {
     //处理响应得代码
-    return response
+    return response.data
   },
   error => {
     if (error && error.response) {

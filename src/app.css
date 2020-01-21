@@ -1,5 +1,5 @@
 :root{
-  font-size: calc(0.6vw + 10px);
+  font-size: calc(0.5vw + 10px);
   font-family: "微软雅黑";
 }
 body {
@@ -29,7 +29,6 @@ a:hover {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-wrap: wrap;
 }
 
 [v-cloak] {
@@ -47,15 +46,16 @@ button, input{
 }
 
 /* 只有在用到的时候才会加载进来，可以放心使用 */
-@font-face {
+/* @font-face {
   font-family: "ITCBLKAD";
-  src: url("./../static/font/ITCBLKAD.ttf");
+  src: url("./../static/font/Inkfree.ttf");
   font-weight: normal;
   font-style: normal;
 }
-@font-face {  
-  font-family: 'CHILLER';  
-  src: url('./../static/font/CHILLER.ttf');
-  font-weight: normal;  
-  font-style: normal;  
-}
+
+@font-face {
+  font-family: "ITCBLKAD";
+  src: url("./../static/font/LHANDW.ttf");
+  font-weight: normal;
+  font-style: normal;
+} */

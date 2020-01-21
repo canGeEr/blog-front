@@ -1,0 +1,35 @@
+.left-side {
+  min-width: 10rem;
+  color: white;
+  background-image: linear-gradient(-45deg, #f4aa91, #f33474)
+}
+
+.left-top {
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+}
+
+.portrait {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background-color: whitesmoke;
+}
+
+.info-att {
+  font-size: 0.75rem;
+}
+
+nav {
+  height: calc(100vh - 4.5rem);
+}
+
+nav li {
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+}
+
+nav li:hover {
+  background-color: #45788f;
+}

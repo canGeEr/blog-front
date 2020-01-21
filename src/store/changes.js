@@ -4,6 +4,8 @@ import VueCookie from 'vue-cookie'
 
 Vue.use(VueCookie);
 
+const VueProtoType = Vue.prototype;
+
 
 // actions：创建驱动方法改变mutations
 const actions = {
@@ -18,21 +20,18 @@ const actions = {
 // mutations：创建改变状态的方法
 const mutations = {
   delUserInFo(state) {
-    state.userInFo.username = null;
-    state.userInFo.grade = null;
-    state.userInFo.id = null;
-    Vue.prototype.$cookie.delete('username');
-    Vue.prototype.$cookie.delete('grade');
-    Vue.prototype.$cookie.delete('id')
+    const userInFo = state.userInFo;
+    for(let pro in userInFo) {
+      userInFo[pro] = null;
+      VueProtoType.$cookie.delete(pro)
+    }
   },
   saveUserInFo(state, payload) {
-    console.log(payload)
-    state.userInFo.username = payload.username;
-    state.userInFo.grade = payload.grade;
-    state.userInFo.id = payload.id;
-    Vue.prototype.$cookie.set('username', payload.username);
-    Vue.prototype.$cookie.set('grade', payload.grade)
-    Vue.prototype.$cookie.set('id', payload.id)
+    const userInFo = state.userInFo;
+    for(let pro in userInFo) {
+      userInFo[pro] = payload[pro];
+      VueProtoType.$cookie.set(pro, payload[pro]);
+    }
   }
 }
 export {

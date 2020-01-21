@@ -1,10 +1,10 @@
 <template>
   <user-frame>
     <template #skip>
-      <p style="color: black">
-        还没有账号?
-        <router-link :to="{name: 'Register'}" tag="a">注册账号</router-link>
-      </p>
+      <span style="color: black" >还没有账号?</span>
+      <router-link :to="{name: 'Register'}" tag="a">注册账号</router-link>
+      <span>\</span>
+      <router-link :to="{name: 'Index'}" tag="a">首页</router-link>
     </template>
     <template #form>
       <div class="form">
@@ -40,23 +40,20 @@ export default {
         username: this.username,
         password: this.password
       })
-        .then(res => {
-          const data = res.data
+        .then(data => {
           console.log(data)
-          if (res && data.success) {
+          if (data && data.success) {
+            //发出通知
             this.$Notice.success({
               title: "登入成功",
               desc: "跳转首页"
             });
-            //变量保存信息，减少访问次数
-            const userInFo = data.userInFo;
-            this.$store.dispatch('saveUserInFo', {
-              username: userInFo.username,
-              grade: userInFo.grade,
-              id: userInFo.id
-            })
+            //更新store
+            this.$store.dispatch('saveUserInFo', data.userInFo)
+            //跳转首页
             this.$router.push({ name: "Index" });
           } else {
+            //错误警告
             this.$Notice.error({
               title: "错误",
               desc: data.msg
@@ -74,5 +71,8 @@ export default {
 };
 </script>
 <style scoped>
+a{
+  text-decoration-line: underline;
+}
 </style>>
 

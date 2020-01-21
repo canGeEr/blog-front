@@ -1,6 +1,6 @@
 <template>
   <footer>
-    @copyRight: zix
+    copyRight: zix
     <!-- 因为是移过来的 -->
     <!-- <div class="m-flex footer_top"> -->
         

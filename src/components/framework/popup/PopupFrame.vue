@@ -29,6 +29,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 0 0 5px 0px rgb(179, 176, 176);
   }
 </style>

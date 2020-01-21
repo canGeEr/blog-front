@@ -9,8 +9,8 @@
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.555);
 }
-h1{
-  font-family: CHILLER;
+h3 {
+  font-weight: lighter;
   padding: 1rem;
   text-align: center;
   text-transform: capitalize;
@@ -25,5 +25,4 @@ p {
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  border-radius: 50%;
 }

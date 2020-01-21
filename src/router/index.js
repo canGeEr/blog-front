@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import PageRouter from '@router/home'
 import UserRouter from '@router/user'
-
+import ManageRouter from '@router/manage'
 Vue.use(Router)
 
 
@@ -16,7 +16,8 @@ const AppRouter = new Router({
       redirect: {name: 'Home'}
     },
     PageRouter,
-    UserRouter
+    UserRouter,
+    ManageRouter
   ]
 })
 

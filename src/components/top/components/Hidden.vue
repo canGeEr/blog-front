@@ -6,7 +6,7 @@ export default {
     if (username) {
       //确保登入状态
       if (!this.canShow) {
-        return <li> {username} </li>;
+        return <li class="default"> {username} </li>;
       } else {
         return (
           <ul class="login-container m-flex">
@@ -26,7 +26,7 @@ export default {
       return this.$store.state.userInFo;
     },
     canShow() {
-      return this.userInFo.grade ? this.userInFo.grade > 0 : false;
+      return this.userInFo.grade ? this.userInFo.grade > 0 && this.userInFo.legal === 'Y' : false;
     }
   },
   mounted() {
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+.default {
+  cursor: default;
+}
 .login-container li{
   padding: 0 0.5rem;
   cursor: pointer;

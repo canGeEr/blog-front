@@ -2,6 +2,7 @@
   <nav class="m-flex">
     <div class="right-nav m-flex out-nav">
       <ul class="ul-nav m-flex">
+        <logo />
         <router-link :to="{name: 'Index'}" tag="li">首页</router-link>
         <router-link :to="{name: 'Register'}" tag="li">注册</router-link>
         <router-link :to="{name: 'Login'}" tag="li" v-if="!logined">登入</router-link>
@@ -10,7 +11,6 @@
     </div>
     <div class="m-flex" style="align-items: center">
       <hidden />
-      <logo />
     </div>
   </nav>
 </template>

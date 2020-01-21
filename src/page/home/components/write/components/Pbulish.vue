@@ -8,7 +8,7 @@
           <input type="text" v-model="tags[index]">
         </p>
         <p>
-          <c-button value="取消" @click="closePopUp" background-color="red" color="white" />
+          <c-button value="取消" @click="closePopUp" class="cancel" />
           <c-button value="发布" @click="$emit('publish',tags)" background-color="black" color="white" />
         </p>
       </form>
@@ -48,7 +48,7 @@
 <style scoped>
   .title {
     padding: 0.75rem 1rem;
-    background-color: grey;
+    background-color: #f33474;
     color: white;
   }
 
@@ -72,6 +72,11 @@
   .button {
     display: block;
     margin-bottom: 0;
+  }
+
+  .cancel {
+    color: black;
+    box-shadow: 0 0 2px 0 rgb(179, 176, 176);
   }
 
 </style>

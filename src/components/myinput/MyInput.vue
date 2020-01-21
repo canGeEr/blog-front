@@ -1,6 +1,6 @@
 <template>
   <label for ref="user-name-label">
-    <input :type="type" ref="user-name-input" :name="name" v-model="value" @input="$emit('input',value)"/>
+    <input :type="type" autocomplete="off" ref="user-name-input" :name="name" v-model="value" @input="$emit('input',value)"/>
     <span ref="user-name-att" class="user-name-att">{{name}}</span>
     <svg version="1.1" viewBox="0 0 600 100 " preserveAspectRatio="none" fill="transparent">
       <path

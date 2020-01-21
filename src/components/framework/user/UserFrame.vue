@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="left-tab m-flex">
-      <h1 style="color: black">welcome to contact me <logo style="color: white" /> </h1>
-      <slot name="skip"></slot>
+      <h3 style="color: black">welcome to contact me</h3>
+      <p><slot name="skip"></slot></p>
     </div>
     <div class="right-tab">
       <slot name="form"></slot>

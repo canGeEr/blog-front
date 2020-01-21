@@ -2,7 +2,7 @@ const Index = ()=>import('@page/home/components/index')
 const Home = ()=>import('@page/home/home.vue')
 const Blogger = ()=>import('@page/home/components/blogger/Blogger')
 const Write = ()=>import('@page/home/components/write/Write')
-const pageRouter = {
+const HomeRouter = {
   path: '/home',
   name: 'Home',
   component: Home,
@@ -27,4 +27,4 @@ const pageRouter = {
   ],
 }
 
-export default pageRouter;
+export default HomeRouter;

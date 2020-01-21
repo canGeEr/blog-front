@@ -26,9 +26,6 @@
         this.showLoading = false
       }
     },
-    mounted() {
-      console.log('Loading is mounted!!!')
-    },
   }
 
 </script>

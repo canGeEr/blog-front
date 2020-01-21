@@ -12,6 +12,7 @@ const state = {
     //权限
     grade: Vue.prototype.$cookie.get('grade'),
     id: Vue.prototype.$cookie.get('id'),
+    legal: Vue.prototype.$cookie.get('legal'),
   }
 }
 
