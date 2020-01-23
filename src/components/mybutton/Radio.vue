@@ -26,8 +26,6 @@ export default {
     const input = this.$refs.input;
     if(this.value === this.checked) {
       input.checked = 'checked'
-    }else {
-      console.log(input)
     }
   }
 }

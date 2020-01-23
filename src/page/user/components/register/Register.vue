@@ -50,7 +50,7 @@ export default {
         password: this.password,
         email: this.email,
         grade: this.grade
-      }).then(({data})=>{
+      }).then((data)=>{
         if(data && data.success) {
             this.$Notice.success({
               title: '注册成功',
@@ -64,12 +64,10 @@ export default {
           })
         }
       }).catch((err)=>{
+        console.log('aa')
         console.log(err)
       })
     }
   },
-  mounted() {
-    console.log(this.$model)
-  }
 };
 </script>
