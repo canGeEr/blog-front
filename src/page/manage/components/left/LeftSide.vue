@@ -1,12 +1,13 @@
 <template>
-  <div class="left-side">
-    <div class="left-top m-flex"> 
-      <img v-once :src="headback" alt="" class="portrait">
-      <div class="info-att"> 用户名 : admin <br> 权限 : 管理员 </div>  
-    </div>
+  <div class="left-side"> 
+    <img v-once :src="headback" alt="" class="portrait">
     <nav>
-      <li>首页 \ 前台</li>
-      <li>用户管理</li>
+      <li>
+        <router-link :to="{name: 'Manage'}">首页</router-link>
+        <span>\</span>    
+        <router-link :to="{name: 'Index'}">前台</router-link> 
+      </li>
+      <router-link :to="{name: 'UserManage'}" tag="li">用户管理</router-link>
       <li>标签管理</li>
       <li>文章管理</li>
     </nav>

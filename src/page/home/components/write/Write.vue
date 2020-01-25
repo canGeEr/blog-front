@@ -2,7 +2,7 @@
   <div class="write">
     <div class="headline">
       <input type="text" placeholder="填写标题" v-model="title" />
-      <c-button value="发表文章" background-color="black" color="white" @click="showPopUp" />
+      <c-button class="btn-pbulish" value="发表文章" @click="showPopUp" />
     </div>
     <mavon-editor
       ref="md"

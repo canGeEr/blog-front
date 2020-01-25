@@ -1,0 +1,30 @@
+/* 表单 */
+form {
+  min-width: 50vw;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+p input {
+  margin-top: 0.25rem;
+}
+
+
+
+form {
+  padding: 1rem 3rem;
+}
+
+
+
+/* 按钮 */
+.btn-pbulish {
+  background-color: black;
+  color: white;
+}
+
+.btn-pbulish:hover {
+  background-color: rgb(73, 71, 71);
+}

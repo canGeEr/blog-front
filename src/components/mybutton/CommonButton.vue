@@ -1,13 +1,11 @@
 <template>
-  <button :style="{backgroundColor: backgroundColor , color: color}"
-    @click="$emit('click')"
-  >{{value}}</button>
+  <button @click="$emit('click')">{{value}}</button>
 </template>
 
 <script>
 export default {
   name: 'CommonButton',
-  props: ['backgroundColor', 'value', 'color']
+  props: ['value']
 }
 </script>
 

@@ -1,0 +1,55 @@
+/* 整体样式 */
+.pop-up-window {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+}
+
+.content {
+  position: absolute;
+  z-index: 99;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 0 5px 0px rgb(179, 176, 176);
+}
+
+/* 其它 */
+
+.title {
+  padding: 0.75rem 1rem;
+  background-color: black;
+  color: white;
+}
+
+.foot {
+  height: 2rem;
+  background-color: black;
+}
+
+/* 按钮盒子 */
+.btn-box {
+  padding: 1rem;
+}
+
+
+.btn-box [class^="btn"] {
+  float: right;
+}
+
+/* 按钮取消 */
+.btn-cancel {
+  margin-right: 0.25rem;
+  color: black;
+  box-shadow: 0 0 2px 0 rgb(179, 176, 176) inset;
+}
+
+.btn-cancel:hover {
+  background-color: red;
+  color: white;
+}

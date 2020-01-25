@@ -16,5 +16,15 @@
 }
 
 .headline input {
+  min-width: 50%;
   line-height: 2rem;
+}
+
+.btn-pbulish {
+  background-color: black;
+  color: white;
+}
+
+.btn-pbulish:hover {
+  background-color: rgb(73, 71, 71);
 }

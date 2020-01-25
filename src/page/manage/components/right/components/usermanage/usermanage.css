@@ -1,0 +1,41 @@
+/* table */
+table {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+tr:nth-child(1)~tr:hover {
+  box-shadow: 0 0 2px 0 black;
+}
+
+td {
+  text-align: center;
+  padding: 0.5vw 1vw;
+  overflow: hidden;
+}
+
+/* .last-column {
+  text-align: left;
+} */
+
+.btn-add {
+  margin: 0 0.25vw;
+}
+
+.btn-delete, .btn-add, .btn-edit {
+  background-color: black;
+  color: white;
+}
+
+.btn-add:hover, .btn-edit:hover {
+  background-color: rgb(73, 71, 71);
+}
+
+.btn-delete:hover {
+  background-color: red;
+  color: white;
+}
+
+.clearfix [class^="btn"] {
+  float: right;
+}

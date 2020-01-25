@@ -45,6 +45,12 @@ button, input{
   padding: 0.25rem 0.5rem;
 }
 
+.clearfix::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
 /* 只有在用到的时候才会加载进来，可以放心使用 */
 /* @font-face {
   font-family: "ITCBLKAD";

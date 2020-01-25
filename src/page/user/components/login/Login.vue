@@ -1,7 +1,7 @@
 <template>
   <user-frame>
     <template #skip>
-      <span style="color: black" >还没有账号?</span>
+      <span style="color: black">还没有账号?</span>
       <router-link :to="{name: 'Register'}" tag="a">注册账号</router-link>
       <span>\</span>
       <router-link :to="{name: 'Index'}" tag="a">首页</router-link>
@@ -41,15 +41,17 @@ export default {
         password: this.password
       })
         .then(data => {
-          console.log(data)
+          console.log(data);
           if (data && data.success) {
             //发出通知
+            const grade = this.getGrade(data.userInFo.grade);
+            const legal = data.userInFo.legal === 'N' ? '未通过认证' : '已认证'
             this.$Notice.success({
               title: "登入成功",
-              desc: "跳转首页"
+              desc: "跳转首页, 您当前的用户等级为 " + grade + '。您的身份' + legal
             });
             //更新store
-            this.$store.dispatch('saveUserInFo', data.userInFo)
+            this.$store.dispatch("saveUserInFo", data.userInFo);
             //跳转首页
             this.$router.push({ name: "Index" });
           } else {
@@ -63,15 +65,23 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    getGrade(grade) {
+      switch(grade) {
+        case '0' : return '游客';
+        case '1' : return '博主';
+        case '2' : return '管理员';
+        default :  return '未知'
+      } 
     }
   },
   mounted() {
-    console.log()
+    console.log();
   }
 };
 </script>
 <style scoped>
-a{
+a {
   text-decoration-line: underline;
 }
 </style>>

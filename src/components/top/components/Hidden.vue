@@ -13,7 +13,7 @@ export default {
             <router-link to={{name: "Write"}} tag="li">
               写博客
             </router-link>
-            <router-link to={{name: "Blogger"}} tag="li">
+            <router-link to={{name: "Manage"}} tag="li">
               {this.userInFo.username}
             </router-link>
           </ul>
@@ -29,9 +29,6 @@ export default {
       return this.userInFo.grade ? this.userInFo.grade > 0 && this.userInFo.legal === 'Y' : false;
     }
   },
-  mounted() {
-    console.log(this.canShow);
-  }
 };
 </script>
 

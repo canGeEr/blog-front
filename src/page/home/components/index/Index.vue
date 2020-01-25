@@ -46,13 +46,12 @@ export default {
       return `${year}-${month}-${day}`;
     }
   },
-  beforeMount() {
+  created() {
     const userInFo= this.$store.state.userInFo
     Axios.post('api/article/getArticlesInFo')
     .then((data)=>{
       if(data) {
         this.data = data.articles
-        console.log(data)
       }
     })
   },

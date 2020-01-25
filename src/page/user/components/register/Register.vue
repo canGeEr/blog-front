@@ -56,7 +56,12 @@ export default {
               title: '注册成功',
             })
             //跳转登入
-            this.$router.push({name: 'Login'})
+            if(this.$store.state.userInFo.username) {
+              //后台添加用户
+              this.$router.go(-1)
+            }else {
+              this.$router.push({name: 'Login'})
+            }
         }else {
           this.$Notice.error({
               title: '注册失败',
@@ -69,5 +74,11 @@ export default {
       })
     }
   },
+  mounted() {
+    this.$Notice.warning({
+      title: '权限须知',
+      desc: '只有申请博主才能发表文章',
+    })
+  }
 };
 </script>
