@@ -5,6 +5,7 @@ const ManageRouter = {
   name: 'Manage',
   path: '/manage',
   component: Manage,
+  redirect: {name: 'UserManage'},
   children: [{
     path: 'usermanage',
     name: 'UserManage',

@@ -1,7 +1,7 @@
 <template>
   <label :for="id">
     <span class="button">
-      <input ref="input" :id="id" type="radio" :name="name" :value="value" @change="$emit('change', value)">
+      <input ref="input" :id="id" type="radio" :checked="initvalue" :name="name" :value="value" @change="$emit('change', value)">
       <span class="button-center"></span>
     </span>
     <span class="font">{{text}}</span>
@@ -16,18 +16,11 @@ export default {
     event: 'change',
   },
   props: ['name', 'id', 'text', 'value', 'checked'],
-  methods: {
-    
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-    const input = this.$refs.input;
-    if(this.value === this.checked) {
-      input.checked = 'checked'
+  computed: {
+    initvalue() {
+      return this.checked === this.value ? 'checked' : false
     }
-  }
+  },
 }
 </script>
 

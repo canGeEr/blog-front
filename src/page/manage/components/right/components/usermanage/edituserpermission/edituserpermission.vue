@@ -22,10 +22,20 @@
           <font color="#45788f">{{cLegal}}</font>
         </span>
       </div>
+       <div class="select-box">
+        <select v-model="form.status" name="status">
+          <option value="0">不可用</option>
+          <option value="1">可用</option>
+        </select>
+        <span class="select-att">
+          等级选择 :
+          <font color="#45788f">{{cLegal}}</font>
+        </span>
+      </div>
     </template>
 
     <template #submit>
-      <c-button class="btn-edit" value="修改权限" @click="editUserGrade" />
+      <c-button class="btn-edit" value="修改权限" @click="editUserPermission" />
     </template>
   </pop-up-frame>
 </template>
@@ -34,7 +44,7 @@
 import CButton from "@components/mybutton/CommonButton";
 import PopUpFrame from "@components/framework/popup/PopupFrame";
 export default {
-  name: "editUserGrade",
+  name: "editUserPermission",
   components: {
     PopUpFrame,
     CButton
@@ -44,7 +54,7 @@ export default {
       form: {
         grade: null,
         legal: null,
-        index: null
+        status: null,
       },
       popUp: false
     };
@@ -55,20 +65,26 @@ export default {
     },
     cLegal() {
       return this.form.legal === "N" ? "未通过" : "已认证";
+    },
+    cStatus() {
+      return this.form.status === "0" ? "不可用" : "可用";
     }
   },
   methods: {
     closePopUp() {
       this.popUp = false;
     },
-    showPopUp(editInFO, index) {
+    showPopUp(userInFo) {
       this.popUp = true;
-      this.$set(this.form, 'grade', editInFO.grade);
-      this.$set(this.form, 'legal', editInFO.legal);
-      this.$set(this.form, 'index', index);
+      const formInit = {
+        grade: userInFo.grade,
+        legal: userInFo.legal,
+        status: userInFo.status,
+      };
+      this.form = formInit;
     },
-    editUserGrade() {
-      this.$emit('editUserGrade', this.form);
+    editUserPermission() {
+      this.$emit('editUserPermission', this.form);
       this.closePopUp()
     }
   },

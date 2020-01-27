@@ -69,8 +69,11 @@ export default {
       var formdata = new FormData();
       formdata.append("image", $file);
       Axios.fileUpload("api/article/saveImage", formdata)
-        .then(({ data }) => {
-          this.images.push(data.path);
+        .then((data) => {
+          this.images.push({
+            path: data.path,
+            legal: true
+          });
           this.$refs.md.$img2Url(pos, "http://192.168.1.105:7001/" + data.path);
         })
         .catch(err => {
@@ -78,10 +81,13 @@ export default {
         });
     },
     $imgDel(file) {
-      //万一上传文件失败，侧无效,现在能确认是整数，其它另外
+      //万一上传文件失败，侧无效,现在能确认是整数，其它另外,这里的filePath就是上面替换的路径
       if (typeof file[0] !== "number") {
         const path = file[0].replace(/http:\/\/192\.168\.1\.105\:7001\//, "");
-        this.images.pop(path);
+        const index =  this.images.findIndex((item, index)=>{
+            return item.path === path
+        });
+        this.$set(this.images[index], 'legal', false)
       } else {
         this.$Notice.warning({
           title: "警告",
@@ -90,6 +96,12 @@ export default {
         });
       }
     }
+  },
+  mounted() {
+    
+  },
+  destroyed() {
+    
   }
 };
 </script>

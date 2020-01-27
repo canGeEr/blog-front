@@ -1,0 +1,22 @@
+.right-side {
+  padding: 0.5rem;
+}
+
+resource-path {
+  padding: 1rem 0;
+  border-bottom: 1px solid black;
+  color: grey;
+}
+
+.container {
+  padding: 1rem;
+}
+
+
+.resource-path font{
+  margin-right: 0.25rem;
+}
+
+.resource-path>span {
+  cursor: pointer;
+}

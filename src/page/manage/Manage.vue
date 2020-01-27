@@ -14,9 +14,6 @@ export default {
     Left,
     Right
   },
-  mounted() {
-    console.log('Manage is mounted !!')
-  }
 }
 </script>
 
