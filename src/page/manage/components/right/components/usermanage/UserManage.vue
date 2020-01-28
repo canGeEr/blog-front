@@ -1,9 +1,11 @@
 <template>
   <div>
-    <manage-frame :tbody.sync="tbody" :thead="thead" @checkAll="checkAll" @checkAdd="checkAdd">
+    <manage-frame :tbody.sync="tbody" :thead="thead" @checkAll="checkAll" @checkAdd="checkAdd"
+      :pagesArr="pagesArr" :pageName="$route.name" :pages="pages "
+    >
       
       <template #top>
-        <div class="clearfix">
+        <div class="clearfix" >
           <c-button class="btn-add" value=" + 添加用户" @click="addUser" />
           <c-button class="btn-filter" value="筛选" />
           <c-button class="btn-delete" :disabled="delDisable" value="删除" @click="deleteUserById" />
@@ -11,8 +13,9 @@
         </div>
       </template>
 
-      <template #bottom>
-        <edit-user-permission ref="edit-user-permission" @editUserPermission="editUserPermission" />
+      <template #bottom > 
+        <edit-user-permission :editForm="editForm" ref="edit-user-permission" @editUserPermission="editUserPermission" />
+        
       </template>
 
     </manage-frame>
@@ -20,6 +23,7 @@
 </template>
 
 <script>
+  import EditUserPermission from './components/edituserpermission/edituserpermission'
   import CButton from "@components/mybutton/CommonButton";
   import ManageFrame from '@components/framework/manage/ManageFrame'
   import methods from './methods'
@@ -27,13 +31,21 @@
     name: 'UserManage',
     components: {
       ManageFrame,
-      CButton
+      CButton,
+      EditUserPermission
     },
     data() {
       return {
         tbody: null,
-        thead: ["name", "grade", "legal", "status"],
-        checkedIndexArr: []
+        thead: ['id', "name", "grade", "legal", "status"],
+        checkedIndexArr: [],
+        editForm: [
+          { proname: 'grade',  alias: { '0': '游客',    '1': '博主'    }},
+          { proname: 'legal',  alias: { 'Y': '已认证',  'N': '未通过'  }},
+          { proname: 'status', alias: { '0': '不可用',  '1': '可用'    }},
+        ],
+        pagesArr: null,
+        pages: null
       }
     },
     computed: {
@@ -50,10 +62,15 @@
     created() {
       this.getUsers();
     },
+    //监听路由变化
+    watch: {
+    '$route' (to, from) {
+         this.getUsers();
+      }
+    }
   }
 
 </script>
 <style>
   @import url("./usermanage");
-
 </style>

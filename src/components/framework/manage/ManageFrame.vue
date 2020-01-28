@@ -5,20 +5,23 @@
       <t-head :thead="thead" @checkAll="checkAll" ref="thead" />
       <t-body :tbody="tbody" :thead="thead" @checkAdd="checkAdd" />
     </table>
-    <slot name="buttom" />
+    <paging :pagesArr="pagesArr" :pageName="pageName" :pages="pages"/>
+    <slot name="bottom" />
   </div>
 </template>
 
 <script>
+  import Paging from './components/paging/Paging'
   import THead from "./components/thead/THead";
   import TBody from "./components/tbody/TBody";
   import Axios from "@service/index";
   export default {
-    name: "UserManage",
-    props: ['tbody', 'thead'],
+    name: "ManageFrame",
+    props: ['tbody', 'thead', 'pagesArr', 'pageName', 'pages'],
     components: {
       THead,
-      TBody
+      TBody,
+      Paging
     },
     methods: {
       checkAll(event) {

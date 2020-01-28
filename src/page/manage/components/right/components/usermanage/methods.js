@@ -3,13 +3,23 @@ import Axios from "@service/index";
 const methods = {
   //获取用户信息
   getUsers() {
-    Axios.post("api/user/getUsers").then(data => {
-      const usersInFo = data.usersInFo
-      usersInFo.forEach((user) => {
-        user.checked = false
-      })
-      this.tbody = usersInFo
+    const id = this.getPId();
+    Axios.post("api/user/getUsersByPageId",{id}).then(data => {
+      if(data && data.success) {
+        const usersInFo = data.usersInFo
+        usersInFo.forEach((user) => {
+          user.checked = false
+        })
+        this.tbody = usersInFo;
+        this.pagesArr = data.pagesArr,
+        this.pages = data.pages
+      }
     });
+  },
+
+  getPId() {
+    const p_id = this.$route.query.id
+    return p_id ? p_id : 1
   },
 
   //单选
@@ -39,11 +49,12 @@ const methods = {
 
   //删除用户
   deleteUserById() {
-    const users = this.users;
     const ids = []
-    this.users = this.users.filter((user) => {
+    this.tbody = this.tbody.filter((user, index) => {
       const checked = user.checked;
       if (checked) {
+        const targetIndex = this.checkedIndexArr.indexOf(index);
+        this.checkedIndexArr.splice(targetIndex, 1);
         ids.push(user.id)
       }
       return !checked
@@ -76,25 +87,26 @@ const methods = {
 
   //打开弹窗
   showPopUp(windowName) {
-    const index = this.checkedUserSign[0];
-    const user = this.users[index]
+    console.log(windowName)
+    const index = this.checkedIndexArr[0];
+    const user = this.tbody[index]
     this.$refs[windowName].showPopUp(user);
   },
 
 
   editUserPermission(data) {
-    const index = this.checkedUserSign[0];
+    const index = this.checkedIndexArr[0];
     //设置提交的数据
     const newUserInFo = {
-      id: this.users[index].id,
+      id: this.tbody[index].id,
       grade: data.grade,
       legal: data.legal,
       status: data.status
     };
     //更新界面
-    this.$set(this.users[index], "grade", data.grade);
-    this.$set(this.users[index], "legal", data.legal);
-    this.$set(this.users[index], "status", data.status);
+    this.$set(this.tbody[index], "grade", data.grade);
+    this.$set(this.tbody[index], "legal", data.legal);
+    this.$set(this.tbody[index], "status", data.status);
     //提交
     Axios.post("api/user/editUserPermission", newUserInFo).then(data => {
       if (data && data.success) {
@@ -104,7 +116,7 @@ const methods = {
           duration: 1.5
         });
         //清空选项
-        this.checkedUserSign = []
+        this.checkedIndexArr = []
       }
     });
   },
