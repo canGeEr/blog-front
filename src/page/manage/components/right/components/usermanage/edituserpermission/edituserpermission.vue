@@ -1,7 +1,21 @@
 <template>
   <pop-up-frame :pop-up="popUp" title="权限管理" @closePopUp="closePopUp">
     <template #form>
+      <!-- <div class="select-box" v-for="(item, pro) in form" :key="item">
+        <span class="select-att">
+            {{pro}} :
+            <font color="#45788f">{{cGrade}}</font>
+        </span>
+        <select name="" id="" >
+          <option value="0">游客</option>
+          <option value="1">博主</option>
+        </select>
+      </div> -->
+
+
+
       <div class="select-box">
+
         <select v-model="form.grade" name="grade">
           <!-- <option disabled value>请选择</option> -->
           <option value="0">游客</option>
@@ -22,7 +36,7 @@
           <font color="#45788f">{{cLegal}}</font>
         </span>
       </div>
-       <div class="select-box">
+      <div class="select-box">
         <select v-model="form.status" name="status">
           <option value="0">不可用</option>
           <option value="1">可用</option>
@@ -41,85 +55,87 @@
 </template>
 
 <script>
-import CButton from "@components/mybutton/CommonButton";
-import PopUpFrame from "@components/framework/popup/PopupFrame";
-export default {
-  name: "editUserPermission",
-  components: {
-    PopUpFrame,
-    CButton
-  },
-  data() {
-    return {
-      form: {
-        grade: null,
-        legal: null,
-        status: null,
-      },
-      popUp: false
-    };
-  },
-  computed: {
-    cGrade() {
-      return this.form.grade === "0" ? "游客" : "博主";
+  import CButton from "@components/mybutton/CommonButton";
+  import PopUpFrame from "@components/framework/popup/PopupFrame";
+  export default {
+    name: "editUserPermission",
+    components: {
+      PopUpFrame,
+      CButton
     },
-    cLegal() {
-      return this.form.legal === "N" ? "未通过" : "已认证";
-    },
-    cStatus() {
-      return this.form.status === "0" ? "不可用" : "可用";
-    }
-  },
-  methods: {
-    closePopUp() {
-      this.popUp = false;
-    },
-    showPopUp(userInFo) {
-      this.popUp = true;
-      const formInit = {
-        grade: userInFo.grade,
-        legal: userInFo.legal,
-        status: userInFo.status,
+    data() {
+      return {
+        form: {
+          grade: null,
+          legal: null,
+          status: null,
+        },
+        popUp: false
       };
-      this.form = formInit;
     },
-    editUserPermission() {
-      this.$emit('editUserPermission', this.form);
-      this.closePopUp()
-    }
-  },
-  mounted() {}
-};
+    computed: {
+      cGrade() {
+        return this.form.grade === "0" ? "游客" : "博主";
+      },
+      cLegal() {
+        return this.form.legal === "N" ? "未通过" : "已认证";
+      },
+      cStatus() {
+        return this.form.status === "0" ? "不可用" : "可用";
+      }
+    },
+    methods: {
+      closePopUp() {
+        this.popUp = false;
+      },
+      showPopUp(userInFo) {
+        this.popUp = true;
+        const formInit = {
+          grade: userInFo.grade,
+          legal: userInFo.legal,
+          status: userInFo.status,
+        };
+        this.form = formInit;
+      },
+      editUserPermission() {
+        this.$emit('editUserPermission', this.form);
+        this.closePopUp()
+      }
+    },
+    mounted() {}
+  };
+
 </script>
 
 <style scoped>
-.title {
-  padding: 0.75rem 1rem;
-  background-color: black;
-  color: white;
-}
+  .title {
+    padding: 0.75rem 1rem;
+    background-color: black;
+    color: white;
+  }
 
-.select-box {
-  margin: 1rem;
-}
+  .select-box {
+    margin: 1rem;
+  }
 
-select {
-  width: 10rem;
-  height: 2rem;
-  line-height: 2rem;
-  vertical-align: middle;
-}
+  select {
+    width: 10rem;
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+  }
 
-.select-att {
-  padding: 0 1rem;
-}
+  .select-att {
+    padding: 0 1rem;
+  }
 
-option {
-  min-width: 45vw;
-}
+  option {
+    min-width: 45vw;
+  }
 
-.foot {
-  height: 2rem;
-  background-color: black;
-}
+  .foot {
+    height: 2rem;
+    background-color: black;
+  }
+
 </style>

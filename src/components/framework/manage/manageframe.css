@@ -1,0 +1,18 @@
+.user-manage {
+  padding: 0 2vw;
+}
+
+/* table */
+table {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+td {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+
+
+

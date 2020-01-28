@@ -1,35 +1,41 @@
 import Axios from "@service/index";
+
 const methods = {
-  //便于查找
-  updateSign(status, index) {
-    if (status) {
-      this.checkedUserSign.push(index)
+  //获取用户信息
+  getUsers() {
+    Axios.post("api/user/getUsers").then(data => {
+      const usersInFo = data.usersInFo
+      usersInFo.forEach((user) => {
+        user.checked = false
+      })
+      this.tbody = usersInFo
+    });
+  },
+
+  //单选
+  checkAdd(target, checked, index) {
+    index = index - '0'
+    if (checked) {
+      this.checkedIndexArr.push(index)
     } else {
-      const targetIndex = this.checkedUserSign.indexOf(index);
-      this.checkedUserSign.splice(targetIndex, 1);
+      const targetIndex = this.checkedIndexArr.indexOf(index);
+      this.checkedIndexArr.splice(targetIndex, 1);
     }
   },
 
-
   //全选按钮
-  checkAll(checked) {
-    //这里的坑其实官网有介绍 https://cn.vuejs.org/v2/guide/forms.html#%E5%A4%8D%E9%80%89%E6%A1%86-1 对象怎么处理
-    const users = this.users;
+  checkAll(target, checked) {
+    const users = this.tbody;
     if (checked) {
       const newCheckedUserSign = []
       users.forEach((item, index) => {
         newCheckedUserSign.push(index)
-        item.checked = true
       });
-      this.checkedUserSign = newCheckedUserSign
+      this.checkedIndexArr = newCheckedUserSign
     } else {
-      users.forEach((item) => {
-        item.checked = false
-      });
-      this.checkedUserSign = []
+      this.checkedIndexArr = []
     }
   },
-
 
   //删除用户
   deleteUserById() {
@@ -100,18 +106,6 @@ const methods = {
         //清空选项
         this.checkedUserSign = []
       }
-    });
-  },
-
-
-  //获取用户信息
-  getUsers() {
-    Axios.post("api/user/getUsers").then(data => {
-      const usersInFo = data.usersInFo
-      usersInFo.forEach(item => {
-        item.checked = false
-      });
-      this.users = usersInFo
     });
   },
 }
