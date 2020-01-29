@@ -6,7 +6,7 @@
         <router-link :to="{name: 'Index'}">前台</router-link> 
       </li>
       <router-link :to="{name: 'UserManage'}" tag="li">用户管理</router-link>
-      <li>文章管理</li>
+      <router-link :to="{name: 'ArticleManage'}" tag="li">文章管理</router-link>
       <li>标签管理</li>
     </nav>
   </div>

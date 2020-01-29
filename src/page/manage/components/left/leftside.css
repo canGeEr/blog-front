@@ -23,10 +23,14 @@ nav {
 }
 
 nav li {
-  padding: 0.5vw 2rem;
+  padding: 0.5vw 1.875rem;
   cursor: pointer;
 }
 
 nav li:hover {
   background-color: #45788f;
+}
+
+.router-link-active {
+  border-left: 5px solid white;
 }

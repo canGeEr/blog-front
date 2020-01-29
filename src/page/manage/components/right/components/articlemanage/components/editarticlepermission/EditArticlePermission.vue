@@ -3,17 +3,16 @@
     <template #form>
       <div class="select-box" v-for="(item, index) of editForm" :key="index">
         <span class="select-att">
-            <font color="#45788f">{{item.proname.capWords()}}</font>
+          <font color="#45788f">{{item.proname.capWords()}}</font>
         </span>
-        <select :name="item.proname" v-model="form[item.proname]" >
-          <option v-for="(aliasTo,aliasFrom) in item.alias " :key="aliasFrom"  :value="aliasFrom">{{aliasTo}}</option>
+        <select :name="item.proname" v-model="form[item.proname]">
+          <option v-for="(aliasTo,aliasFrom) in item.alias " :key="aliasFrom" :value="aliasFrom">{{aliasTo}}</option>
         </select>
-        
       </div>
     </template>
 
     <template #submit>
-      <c-button class="btn-edit" value="修改权限" @click="editUserPermission" />
+      <c-button class="btn-edit" value="修改权限" @click="editArticlePermission" />
     </template>
 
   </pop-up-frame>
@@ -23,7 +22,7 @@
   import CButton from "@components/mybutton/CommonButton";
   import PopUpFrame from "@components/framework/popup/PopupFrame";
   export default {
-    name: "editUserPermission",
+    name: "EditArticlePermission",
     components: {
       PopUpFrame,
       CButton
@@ -32,8 +31,6 @@
     data() {
       return {
         form: {
-          grade: null,
-          legal: null,
           status: null,
         },
         popUp: false
@@ -46,14 +43,12 @@
       showPopUp(userInFo) {
         this.popUp = true;
         const formInit = {
-          grade: userInFo.grade,
-          legal: userInFo.legal,
           status: userInFo.status,
         };
         this.form = formInit;
       },
-      editUserPermission() {
-        this.$emit('editUserPermission', this.form);
+      editArticlePermission() {
+        this.$emit('editArticlePermission', this.form);
         this.closePopUp()
       }
     },
