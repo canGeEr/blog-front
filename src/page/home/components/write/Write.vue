@@ -61,8 +61,13 @@ export default {
             title: "通知",
             desc: "发表成功"
           });
+          if(this.$store.state.userInFo.username) {
+            //后台添加用户
+            this.$router.go(-1)
+          }else {
+            this.$router.push({ name: "Index" });
+          }
         }
-        this.$router.push({ name: "Index" });
       });
     },
     $imgAdd(pos, $file) {

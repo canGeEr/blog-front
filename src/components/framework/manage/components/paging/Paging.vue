@@ -4,22 +4,22 @@
     <router-link tag="li" class="page-last" :to="{
       name: pageName,
       query: {
-        id: lastPageId
+        pId: lastPageId
       }
     }">上一页</router-link>
     <router-link v-for="(value, index) of pagesArr" :key="index" tag="li" :to="{
       name: pageName,
       query: {
-        id: value
+        pId: value
       }
     }">{{value}}</router-link>
     <router-link class="page-next" tag="li" :to="{
       name: pageName,
       query: {
-        id: nextPageId
+        pId: nextPageId
       }
      }">下一页</router-link>
-    <input type="text" name="p_id" v-model="p_id" @change.enter="reload">
+    <input type="text" name="pId" v-model="pId" @change.enter="reload">
     <li class="page-reload"  @click="reload">跳转</li>
     <span class="info">{{pages}} pages</span>
   </ul>
@@ -35,15 +35,15 @@ export default {
   },
   methods: {
     getPId() {
-      const p_id = this.$route.query.id
-      return p_id ? p_id : 1
+      const pId = this.$route.query.pId
+      return pId ? pId : 1
     },
     reload() {
-      const p_id = this['p_id'];
+      const pId = this.pId;
       this.$router.push({
         name: this.pageName,
         query: {
-          id:p_id
+          pId:pId
         }
       })
     }
@@ -60,12 +60,9 @@ export default {
   },
   data() {
     return {
-      'p_id': ''
+      pId: ''
     }
   },
-  mounted() {
-    console.log(this.getPId())
-  }
 }
 </script>
 

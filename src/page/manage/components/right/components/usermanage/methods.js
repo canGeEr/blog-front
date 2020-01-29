@@ -1,49 +1,20 @@
 import Axios from "@service/index";
 
 const methods = {
+  /**
+   * checkedIndexArr 选择项对应的 index 数组 为了方便的拿到数据而存在
+   * cancelByIndex , selectByValue, selectAll, cancelAll 方法操作
+   */
   //获取用户信息
-  getUsers() {
+  async initData() {
     const id = this.getPId();
-    Axios.post("api/user/getUsersByPageId",{id}).then(data => {
-      if(data && data.success) {
-        const usersInFo = data.usersInFo
-        usersInFo.forEach((user) => {
-          user.checked = false
-        })
-        this.tbody = usersInFo;
-        this.pagesArr = data.pagesArr,
-        this.pages = data.pages
+    const data = await Axios.post("api/user/getUsersByPageId", {id});
+    if (data && data.success) {
+      return {
+        tbody: data.usersInFo,
+        pagesArr: data.pagesArr,
+        pages: data.pages
       }
-    });
-  },
-
-  getPId() {
-    const p_id = this.$route.query.id
-    return p_id ? p_id : 1
-  },
-
-  //单选
-  checkAdd(target, checked, index) {
-    index = index - '0'
-    if (checked) {
-      this.checkedIndexArr.push(index)
-    } else {
-      const targetIndex = this.checkedIndexArr.indexOf(index);
-      this.checkedIndexArr.splice(targetIndex, 1);
-    }
-  },
-
-  //全选按钮
-  checkAll(target, checked) {
-    const users = this.tbody;
-    if (checked) {
-      const newCheckedUserSign = []
-      users.forEach((item, index) => {
-        newCheckedUserSign.push(index)
-      });
-      this.checkedIndexArr = newCheckedUserSign
-    } else {
-      this.checkedIndexArr = []
     }
   },
 
@@ -53,15 +24,13 @@ const methods = {
     this.tbody = this.tbody.filter((user, index) => {
       const checked = user.checked;
       if (checked) {
-        const targetIndex = this.checkedIndexArr.indexOf(index);
-        this.checkedIndexArr.splice(targetIndex, 1);
+        //解除 选项绑定
+        this.cancelByIndex(index)
         ids.push(user.id)
       }
       return !checked
     })
-    Axios.post("api/user/delUserById", {
-      ids
-    }).then(data => {
+    Axios.post("api/user/delUserById", {ids}).then(data => {
       if (data && data.success) {
         this.$Notice.success({
           title: "通知",
@@ -82,15 +51,6 @@ const methods = {
     this.$router.push({
       name: "Register"
     });
-  },
-
-
-  //打开弹窗
-  showPopUp(windowName) {
-    console.log(windowName)
-    const index = this.checkedIndexArr[0];
-    const user = this.tbody[index]
-    this.$refs[windowName].showPopUp(user);
   },
 
 
@@ -118,9 +78,9 @@ const methods = {
           checked: false,
           username: this.tbody[index].username
         }
-        //清空选项
         this.$set(this.tbody, index, newUser);
-        this.checkedIndexArr = []
+        //清空选项
+        this.cancelByIndex(index)
       }
     });
   },
