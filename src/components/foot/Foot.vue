@@ -1,6 +1,13 @@
 <template>
   <footer>
-    copyRight: zix
+    <span name="common-botton-content">copyRight: zix</span>
+    <span name="管理员专属">
+      <router-link v-if="isAdmin" :to="{name: 'Manage'}" class="enter-manage">
+        后台管理
+      </router-link>
+    </span>
+
+
     <!-- 因为是移过来的 -->
     <!-- <div class="m-flex footer_top"> -->
         
@@ -49,7 +56,15 @@
 
 <script>
 export default {
-  name: "Foot"
+  name: "Foot",
+  computed: {
+    isAdmin() {
+      return this.$store.state.userInFo.grade === '2'
+    } 
+  },
+  mounted() {
+
+  }
 };
 </script>
 

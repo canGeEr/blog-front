@@ -1,19 +1,18 @@
 #blogger{
-  flex-direction: column;
-  justify-content: space-between;
   padding: 0.5rem;
-  width: 90%;
-  height: 30rem;
-  margin: 0 auto;
+  /* width: 60%; */
+  /* height: 30rem; */
+  /* margin: 0 auto; */
 }
 .right-box{
-  flex-direction: column;
-  align-items: flex-end;
+  float: right;
+  text-align: center;
 }
 .blog-use-img{
+  display: inline-block;
   width: 4rem;
   height: 4rem;
-  margin: 1rem 1.5rem 0 0;
+  /* margin: 1rem 1.5rem 0 0; */
   border-radius: 50%;
   background-color: #6c6c6c;
 }
@@ -22,6 +21,7 @@
   text-align: center;
   text-transform: uppercase;
 }
-p{
-  font-style: italic;
+
+.h-title-att {
+  font-weight: lighter;
 }

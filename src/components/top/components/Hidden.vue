@@ -13,8 +13,8 @@ export default {
             <router-link to={{name: "Write"}} tag="li">
               写博客
             </router-link>
-            <router-link to={{name: "Manage"}} tag="li">
-              {this.userInFo.username}
+            <router-link to={{name: "Blogger"}} tag="li">
+              博主
             </router-link>
           </ul>
         );
