@@ -6,7 +6,7 @@
       query: {
         pId: lastPageId
       }
-    }">上一页</router-link>
+    }"> &lt; </router-link>
     <router-link v-for="(value, index) of pagesArr" :key="index" tag="li" :to="{
       name: pageName,
       query: {
@@ -18,10 +18,10 @@
       query: {
         pId: nextPageId
       }
-     }">下一页</router-link>
+     }">&gt;</router-link>
     <input type="text" name="pId" v-model="pId" @change.enter="reload">
     <li class="page-reload"  @click="reload">跳转</li>
-    <span class="info">{{pages}} pages</span>
+    <span class="info">{{pages}}/p</span>
   </ul>
 </template>
 
@@ -70,25 +70,25 @@ export default {
 
 ul {
   margin-top: 5vh;
-  /* text-align: center; */
 }
 
 [class^="page"] {
-
-  background-color: black;
-  color: white;
-  padding: 0.375rem ;
-  font-size: 0.85rem;
+  /* border: 1px solid black; */
+  /* padding: 0.375rem ; */
 }
 
 li {
   display: inline-block;
   vertical-align: middle;
   margin: 0 0.25rem;
-  padding: 0.25rem 0.625rem;
+  padding: 0.125rem 0.50rem;
   border: 1px solid black;
   cursor: pointer;
   border-radius: 5px;
+}
+
+li:hover {
+  color: #45788f;
 }
 
 .router-link-exact-active {
@@ -98,11 +98,11 @@ li {
 
 
 input {
-  width: 2rem;
+  width: 1.875rem;
   vertical-align: middle;
   text-align: center;
   line-height: 1rem;
-  padding: 0.325rem;
+  /* padding: 0.325rem; */
 }
 
 

@@ -1,23 +1,8 @@
 /* 表单 */
 form {
   min-width: 50vw;
-}
-
-p {
-  margin: 1rem 0;
-}
-
-p input {
-  margin-top: 0.25rem;
-}
-
-
-
-form {
   padding: 1rem 3rem;
 }
-
-
 
 /* 按钮 */
 .btn-pbulish {
@@ -27,4 +12,53 @@ form {
 
 .btn-pbulish:hover {
   background-color: rgb(73, 71, 71);
+}
+
+/* 标签类 */
+.tag-class {
+  display: inline-block;
+  padding: 0.25rem 0.5rem ;
+  margin: 0 0.125rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* 标签类 选择 */
+.tag-class-select {
+  color: red;
+}
+
+/* 标签盒子 */
+.tag-box {
+  margin-top: 1vw;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  cursor: pointer;
+}
+
+.tag-select {
+  border-color: grey;
+  color: grey;
+}
+
+
+h4 {
+  margin: 0.5rem;
+}
+
+
+.tag-has-select {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin-right: 0.125rem;
 }
