@@ -14,7 +14,6 @@
     name: "MarkDownForWrite",
     components: {
       mavonEditor,
-      CButton
     },
     data() {
       return {
@@ -41,7 +40,8 @@
               path: data.path,
               legal: true
             });
-            this.$refs.md.$img2Url(pos, "http://192.168.1.105:7001/" + data.path);
+            const configUrl = this.$config.api;
+            this.$refs.md.$img2Url(pos, configUrl + data.path);
           })
           .catch(err => {
             console.log(err);
@@ -50,7 +50,8 @@
       $imgDel(file) {
         //万一上传文件失败，侧无效,现在能确认是整数，其它另外,这里的filePath就是上面替换的路径
         if (typeof file[0] !== "number") {
-          const path = file[0].replace(/http:\/\/192\.168\.1\.105\:7001\//, "");
+          const configUrl = this.$config.api;
+          const path = file[0].replace(new RegExp(configUrl), "");
           const index = this.images.findIndex((item, index) => {
             return item.path === path
           });

@@ -1,5 +1,5 @@
 const config = {
-  api: 'http://192.168.1.105:7001',
+  api: 'http://192.168.1.105:7001/',
   dataBaseAlias: {
     grade: {
       '0' : '游客',

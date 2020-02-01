@@ -12,6 +12,9 @@ Vue.prototype.$Notice = Notice;
 import Loading from '@myplugin/loading'
 Vue.use(Loading)
 
+import config from './config/index'
+Vue.prototype.$config = config;
+
 //导入字符串函数
 import capWords from '@myplugin/capwords'
 String.prototype.capWords = capWords

@@ -19,10 +19,9 @@ const HomeRouter = {
       component: Index
     },
     {
-      path: 'write/:operate',
+      path: 'write',
       name: 'Write',
       component: Write,
-      props: true
     },
     {
       path: 'article',
