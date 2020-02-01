@@ -10,6 +10,7 @@
       v-model="markdownValue"
       @imgAdd="$imgAdd"
       @imgDel="$imgDel"
+      ref="md"
     />
     <pbulish ref="publish" @publish="pbulish" />
   </div>
@@ -19,9 +20,9 @@
 import pbulish from "./components/Pbulish";
 import CButton from "@components/mybutton/CommonButton";
 import Axios from "@service/index";
-import markDownForWrite from '@components/markdown/forWrite/MarkDown'
+import markDownForWrite from '@components/markdown/forWrite/MarkDown.js'
 export default {
-  extends: markDownForWrite,
+  mixins: [markDownForWrite],
   name: "Write",
   components: {
     pbulish,

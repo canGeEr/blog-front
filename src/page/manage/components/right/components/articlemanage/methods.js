@@ -43,6 +43,7 @@ const methods = {
     Axios.post("api/article/delArticleById", {
       ids
     }).then(data => {
+      console.log(data)
       if (data && data.success) {
         this.$Notice.success({
           title: "通知",

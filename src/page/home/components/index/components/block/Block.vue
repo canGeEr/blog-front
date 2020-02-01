@@ -1,5 +1,5 @@
 <template>
-  <router-link :to=" 'article?id=' + id " tag="a" class="block">
+  <router-link :to=" {name: 'Read', query: {id} } " tag="a" class="block">
     <div>
       <div class="header">{{author}}</div>
       <p>{{title}}</p>

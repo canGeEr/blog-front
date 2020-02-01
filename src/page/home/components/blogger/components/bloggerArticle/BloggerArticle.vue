@@ -39,6 +39,16 @@ export default {
           pages: data.pages
         }
       }
+    },
+    getArticleById() {
+      const index = this.checkedIndexArr[0];
+      const id = this.tbody[index].id;
+      this.$router.push({
+        name: 'Edit',
+        query: {
+          id
+        }
+      })
     }
   },
   data() {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import PageRouter from '@router/home'
+import PageRouter from '@router/home/home'
 import UserRouter from '@router/user'
 import ManageRouter from '@router/manage'
 

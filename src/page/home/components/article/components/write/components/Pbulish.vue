@@ -60,6 +60,9 @@
       CButton
     },
     methods: {
+      initSelectTags(selectTags) {
+        this.selectTags = selectTags.slice(0)
+      },
       closePopUp() {
         this.popUp = false;
       },
@@ -109,7 +112,6 @@
       }
     },
     created() {
-      
       this.initData();
     },
     mounted() {
