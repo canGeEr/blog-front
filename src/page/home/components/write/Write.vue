@@ -26,6 +26,7 @@ import CButton from "@components/mybutton/CommonButton";
 import Axios from "@service/index";
 export default {
   name: "Write",
+  props: ['operate'],
   components: {
     mavonEditor,
     pbulish,
@@ -103,10 +104,10 @@ export default {
       }
     }
   },
-  mounted() {
+  destroyed() {
     
   },
-  destroyed() {
+  mounted() {
     
   }
 };

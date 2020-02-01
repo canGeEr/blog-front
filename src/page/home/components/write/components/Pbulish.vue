@@ -38,7 +38,6 @@
   import CButton from "@components/mybutton/CommonButton";
   import PopUpFrame from "@components/framework/popup/PopupFrame";
 
-
   const config = {
     TAG_MAX_NUB: 3
   }
@@ -110,7 +109,8 @@
       }
     },
     created() {
-      this.initData()
+      
+      this.initData();
     },
     mounted() {
 

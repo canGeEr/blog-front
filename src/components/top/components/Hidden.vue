@@ -10,7 +10,7 @@ export default {
       } else {
         return (
           <ul class="login-container m-flex">
-            <router-link to={{name: "Write"}} tag="li">
+            <router-link to={{name: "Write", params:{operate: 'pbulish'}}} tag="li">
               写博客
             </router-link>
             <router-link to={{name: "Blogger"}} tag="li">
