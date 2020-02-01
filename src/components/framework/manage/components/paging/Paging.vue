@@ -72,11 +72,6 @@ ul {
   margin-top: 5vh;
 }
 
-[class^="page"] {
-  /* border: 1px solid black; */
-  /* padding: 0.375rem ; */
-}
-
 li {
   display: inline-block;
   vertical-align: middle;

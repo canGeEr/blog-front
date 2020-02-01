@@ -45,7 +45,8 @@ export default {
   },
   methods: {
     showPopUp() {
-      this.$refs.publish.showPopUp();
+      const publish = this.$refs.publish
+      publish.showPopUp();
     },
     //发布
     pbulish(tags) {

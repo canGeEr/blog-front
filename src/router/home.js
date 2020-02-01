@@ -1,8 +1,12 @@
 const Index = ()=>import('@page/home/components/index')
 const Home = ()=>import('@page/home/home.vue')
-const Blogger = ()=>import('@page/home/components/blogger/Blogger')
 const Write = ()=>import('@page/home/components/write/Write')
 const Article = ()=>import('@page/home/components/article/Article')
+
+const Blogger = ()=>import('@page/home/components/blogger/Blogger');
+
+import HomeBloggerRouter from '@router/blogger'
+
 const HomeRouter = {
   path: '/home',
   name: 'Home',
@@ -15,11 +19,6 @@ const HomeRouter = {
       component: Index
     },
     {
-      path: 'blogger',
-      name: 'Blogger',
-      component: Blogger
-    },
-    {
       path: 'write',
       name: 'Write',
       component: Write
@@ -28,6 +27,13 @@ const HomeRouter = {
       path: 'article',
       name: 'Article',
       component: Article
+    },
+    {
+      path: 'blogger',
+      name: 'Blogger',
+      component: Blogger,
+      redirect: {name: 'BloggerArticle'},
+      children: [HomeBloggerRouter]
     }
   ],
 }

@@ -1,27 +1,60 @@
 #blogger{
   padding: 0.5rem;
-  /* width: 60%; */
+  width: 90%;
   /* height: 30rem; */
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
+
+/*  */
 .right-box{
   float: right;
   text-align: center;
 }
+
+/* 用户头像 */
 .blog-use-img{
   display: inline-block;
-  width: 4rem;
-  height: 4rem;
-  /* margin: 1rem 1.5rem 0 0; */
+  vertical-align: middle;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   background-color: #6c6c6c;
 }
+
+
+/* 为了让头像块居中 */
+.blog-use-img-box {
+  line-height: 4.5rem;
+}
+
+
+
+/* 小标题部分 */
 .h-title{
   font-size: 3rem;
-  text-align: center;
   text-transform: uppercase;
 }
 
-.h-title-att {
-  font-weight: lighter;
+/*  */
+
+nav {
+  margin-top: 2rem;
+  padding: 0 6.25%;
+  background-image: linear-gradient(45deg,transparent 0%,transparent 5%,
+  #f33474 5%, #f4aa91 95%,transparent 95%);
+}
+
+nav span {
+  float: right;
+  padding: 0.5rem 0.5rem;
+  color: rgba(255, 255, 255, 0.795);
+  background-color: black;
+  box-shadow: 0 0 5px 0 black;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  transition: float 1s;
+}
+
+.router-link-exact-active {
+  float: left;
 }

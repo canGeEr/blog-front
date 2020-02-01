@@ -68,7 +68,7 @@
         this.popUp = true;
       },
       //初始化数据
-      async initDate() {
+      async initData() {
         const data = await Axios.post('api/tags', {
           type: 'front'
         });
@@ -110,7 +110,7 @@
       }
     },
     created() {
-      this.initDate()
+      this.initData()
     },
     mounted() {
 

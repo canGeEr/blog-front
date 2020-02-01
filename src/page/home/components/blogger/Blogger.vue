@@ -1,17 +1,25 @@
 <template>
   <div id="blogger">
-
-    <div class="clearfix">
+    <div class="clearfix blogger-top">
       <div class="right-box">
-        <span class="blog-use-img"></span><br/>
-        <span>关注 {{fans}}</span >
+        <div class="blog-use-img-box"><span class="blog-use-img"></span></div>
+        <p>关注 {{fans}}</p>
+      </div>
+      <div>
+        <div class="h-title">believe & strive</div>
+        <p>I love life although it blow me drasticly and frequnetly</p>
       </div>
     </div>
-    <div class="h-title">
-      
-      believe & Strive
+    
+    <div class="container">
+      <nav>
+      <ul class="clearfix">
+        <router-link tag="span" :to="{ name: 'BloggerArticle'}" > 文章管理 </router-link>
+        <router-link tag="span" :to="{name: 'User'}"> 栏目管理 </router-link>
+      </ul>
+    </nav>
+      <router-view></router-view>
     </div>
-    <p class="h-title-att">I love life although it blow me drasticly and frequnetly</p>
   </div>
 </template>
 
@@ -23,14 +31,10 @@
         return this.$store.state.userInFo.fans
       }
     },
-    mounted() {
-      console.log()
-    },
   }
 
 </script>
 
 <style scoped>
   @import url('./blogger.css');
-
 </style>>
