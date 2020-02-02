@@ -1,0 +1,30 @@
+.write {
+  width: 100%;
+}
+
+.mavon-editor {
+  min-height: 100vh;
+  z-index: 0;
+}
+
+/* 
+标题
+*/
+.headline {
+  padding: 0.25rem;
+  background-color: white;
+}
+
+.headline input {
+  min-width: 50%;
+  line-height: 2rem;
+}
+
+.btn-pbulish {
+  background-color: black;
+  color: white;
+}
+
+.btn-pbulish:hover {
+  background-color: rgb(73, 71, 71);
+}

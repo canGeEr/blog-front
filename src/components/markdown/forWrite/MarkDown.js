@@ -6,6 +6,8 @@ import {
 import "mavon-editor/dist/css/index.css";
 import markcof from "./markcof";
 import Axios from "@service/index";
+
+
 export default {
   components: {
     mavonEditor,
@@ -13,7 +15,8 @@ export default {
   data() {
     return {
       markdownValue: "",
-      images: []
+      images: [],
+      clearUploadImagesFlag: 1
     };
   },
   computed: {
@@ -31,10 +34,7 @@ export default {
       formdata.append("image", $file);
       Axios.fileUpload("api/article/saveImage", formdata)
         .then((data) => {
-          this.images.push({
-            path: data.path,
-            legal: true
-          });
+          this.images.push(data.path);
           const configUrl = this.$config.api;
           this.$refs.md.$img2Url(pos, configUrl + data.path);
         })
@@ -47,10 +47,19 @@ export default {
       if (typeof file[0] !== "number") {
         const configUrl = this.$config.api;
         const path = file[0].replace(new RegExp(configUrl), "");
-        const index = this.images.findIndex((item, index) => {
-          return item.path === path
-        });
-        this.$set(this.images[index], 'legal', false)
+        Axios.post('api/article/delImage', {
+            images: [path]
+          })
+          .then((data) => {
+            if (data && data.success) {
+              console.log('删除成功')
+            }
+          })
+        this.images.some((image, index) => {
+          if (image === path) {
+            this.images.splice(index, 1)
+          }
+        })
       } else {
         this.$Notice.warning({
           title: "警告",
@@ -58,6 +67,29 @@ export default {
           duration: 2.5
         });
       }
+    },
+    imagesFilter(images) {
+      const imagesArr = images.slice(0);
+      const api = this.$config.api;
+      return imagesArr.filter((image)=>{
+        const result = this.markdownValue.match(new RegExp('!\\[.*\\]\\(' + api + image + '\\)' ))
+        //不在就删除
+        if(!result) {
+          Axios.post('api/article/delImage', {images: [image]})
+        }
+        return !!(result)
+      })
     }
   },
+  destroyed() {
+    //删除已经上传的图片，尚未保存
+    if(this.clearUploadImagesFlag) {
+      Axios.post('api/article/delImage', {images: this.images})
+      .then((data)=>{
+        if(data && data.success) {
+          console.log(data)
+        }
+      })
+    }
+  }
 };

@@ -21,6 +21,7 @@ import pbulish from "./components/Pbulish";
 import CButton from "@components/mybutton/CommonButton";
 import Axios from "@service/index";
 import markDownForWrite from '@components/markdown/forWrite/MarkDown.js'
+
 export default {
   mixins: [markDownForWrite],
   name: "Write",
@@ -40,18 +41,22 @@ export default {
     },
     //发布
     pbulish(tags) {
+      //过滤查看
+      const images = this.imagesFilter(this.images)
       Axios.post("api/article/saveArticle", {
         title: this.title,
         tags,
+        images,
         content: this.markdownValue,
         username: this.$store.state.userInFo.username,
-        images: this.images
       }).then(data => {
         if (data && data.success) {
           this.$Notice.success({
             title: "通知",
             desc: "发表成功"
           });
+          //是否在销毁组件时清除,确认发布状态
+          this.clearUploadImagesFlag = 0;
           if(this.$store.state.userInFo.username) {
             //后台添加用户
             this.$router.go(-1)
@@ -61,7 +66,8 @@ export default {
         }
       });
     },
-  }
+  },
+
 };
 </script>
 

@@ -11,13 +11,18 @@
 </template>
 
 <script>
-  import Axios from '@service'
-  import write from './../write/Write'
-  import methods from '@page//manage/components/right/components/articlemanage/methods'
-  let  oldImages = null;
+  import pbulish from "./../write/components/Pbulish";
+  import CButton from "@components/mybutton/CommonButton";
+  import Axios from "@service/index";
+  import markDownForWrite from '@components/markdown/forWrite/MarkDown.js'
+  let oldImages = null;
   export default {
-    extends: write,
+    mixins: [markDownForWrite],
     name: 'Edit',
+    components: {
+      pbulish,
+      CButton
+    },
     data() {
       return {
         title: '',
@@ -34,47 +39,33 @@
             this.markdownValue = data.content;
             const articleInFo = data.articleInFo
             this.title = articleInFo.title,
-            oldImages = articleInFo.images
+              oldImages = articleInFo.images
             this.$refs.publish.initSelectTags(JSON.parse(articleInFo.tags))
           }
         })
     },
     methods: {
+      showPopUp() {
+        const publish = this.$refs.publish
+        publish.showPopUp();
+      },
       pbulish(tags) {
         const id = this.$route.query.id;
-
-        //获取默认api路径
-        const configUrl = this.$config.api;
-
-        //正则匹配 注意在new RegExp转义一次，用时转义一次
-        oldImages.forEach((image)=>{
-          const regexpUrl = new RegExp('\\[.*\\]\\(' + configUrl +  image + '\\)');
-          const matchResult = this.markdownValue.match(regexpUrl);
-          if(!matchResult) {
-            this.images.push({
-              path: image,
-              legal: false
-            });
-          }else {
-            this.images.push({
-              path: image,
-              legal: true
-            });
-          }
-        })
-        
+        const images = this.imagesFilter(this.images.concat(oldImages))
         Axios.post("api/article/updateArticle", {
           id,
           title: this.title,
           tags,
           content: this.markdownValue,
-          images: this.images
+          images: images
         }).then(data => {
           if (data && data.success) {
             this.$Notice.success({
               title: "通知",
               desc: "修改成功"
             });
+            //是否在销毁组件时清除,确认发布状态
+            this.clearUploadImagesFlag = 0;
             if (this.$store.state.userInFo.username) {
               //后台添加用户
               this.$router.go(-1)
@@ -90,3 +81,7 @@
   }
 
 </script>
+
+<style scoped>
+@import url('./edit.css');
+</style>
