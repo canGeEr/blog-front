@@ -13,7 +13,7 @@
         :key="index"
         :author="item.author"
         :title="item.title"
-        :time="item['create_time'] | getTime"
+        :time="item['create_time'] | formatDate"
         :hit="item['hit_times']"
         :tag="item.tag"
         :id="item.id"
@@ -37,15 +37,6 @@ export default {
     Block
   },
   methods: {},
-  filters: {
-    getTime(value) {
-      value = new Date(value-0);
-      let year = value.getFullYear();
-      let month = value.getMonth() + 1;
-      let day = value.getDate();
-      return `${year}-${month}-${day}`;
-    }
-  },
   created() {
     const userInFo= this.$store.state.userInFo
     Axios.post('api/article/getArticlesInFo')

@@ -21,6 +21,16 @@ String.prototype.capWords = capWords
 
 Vue.config.productionTip = false
 
+Vue.filter('formatDate', function(value){
+  value = new Date(value-0);
+  let year = value.getFullYear();
+  let month = value.getMonth() + 1;
+  let day = value.getDate();
+  return `${year}-${month}-${day}`;
+})
+
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

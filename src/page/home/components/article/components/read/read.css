@@ -1,0 +1,36 @@
+/* 移动优先 */
+
+h1,p {
+  padding: 8px 25px 0px;
+}
+p {
+  font-size: 0.875rem;
+  color: grey;
+}
+
+/* markdown */
+.read-article {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  color: black;
+}
+
+@media(min-width: 600px) {
+  .read-article {
+    width:50%;
+  }
+}
+
+/* 左栏 */
+.left-side {
+  position: fixed;
+  z-index: 1;
+  left: calc(25% - 4rem);
+  top: 40%;
+}
+path , svg {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}

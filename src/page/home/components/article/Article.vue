@@ -21,5 +21,6 @@ export default {
 .markdown-body {
   min-height: 100vh !important;
   z-index: 0 !important;
+  font-size: 1rem !important;
 }
 </style>
