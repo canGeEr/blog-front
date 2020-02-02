@@ -11,6 +11,7 @@
       @imgAdd="$imgAdd"
       @imgDel="$imgDel"
       ref="md"
+      :ishljs="true"
     />
     <pbulish ref="publish" @publish="pbulish" />
   </div>

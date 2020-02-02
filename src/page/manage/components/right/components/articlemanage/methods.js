@@ -64,7 +64,7 @@ const methods = {
     const index = this.checkedIndexArr[0];
     const id = this.tbody[index].id;
     this.$router.push({
-      name: 'Article',
+      name: 'Read',
       query: {
         id
       }

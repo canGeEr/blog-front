@@ -6,8 +6,9 @@
       <template #top>
         <div class="clearfix" >
           <c-button class="btn-add" value=" + 添加文章" @click="addArticle" />
-          <c-button class="btn-filter" value="筛选" />
           <c-button class="btn-filter" value="修改文章" :disabled="onlyOneDisable" @click="getArticleById"/>
+          <c-button class="btn-filter" value="筛选" />
+          <c-button class="btn-delete" value="删除" :disabled="moreOneDisable" @click="delArticleById"/>
           <c-button class="btn-edit" :disabled="onlyOneDisable" value="修改权限" @click="showPopUp('edit-user-permission')" />
         </div>
       </template>
