@@ -15,7 +15,7 @@
       <nav>
       <ul class="clearfix">
         <router-link tag="span" :to="{ name: 'BloggerArticle'}" > 文章管理 </router-link>
-        <router-link tag="span" :to="{name: 'User'}"> 栏目管理 </router-link>
+        <router-link tag="span" :to="{name: 'BloggerMsg'}"> 用户信息 </router-link>
       </ul>
     </nav>
       <router-view></router-view>
